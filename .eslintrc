@@ -1,0 +1,70 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "airbnb",
+    "plugin:prettier/recommended",
+    "plugin:jest/recommended"
+  ],
+  "env": {
+    "es6": true
+  },
+  "plugins": ["react", "jest"],
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "rules": {
+    "import/prefer-default-export": 0,
+    "no-param-reassign": [
+      "error",
+      {
+        "props": true,
+        "ignorePropertyModificationsFor": ["draft"]
+      }
+    ],
+    // don't force es6 functions to include space before paren
+    "space-before-function-paren": 0,
+    "react/jsx-wrap-multilines": 0,
+    "react/jsx-boolean-value": 0,
+    "react/jsx-filename-extension": [1, {"extensions": [".js", ".jsx"]}],
+    "no-underscore-dangle": ["error", {"allow": ["_id"]}],
+    "react/jsx-props-no-spreading": 0,
+    "react/jsx-closing-bracket-location": 0,
+    "camelcase": [
+      "error",
+      {"allow": ["access_token", "booking_id", "service_id"]}
+    ],
+    "jsx-wrap-multilines": 0,
+    "no-useless-rename": [
+      2,
+      {
+        "ignoreDestructuring": true,
+        "ignoreImport": false,
+        "ignoreExport": false
+      }
+    ],
+    "import/no-unresolved": [
+      "error",
+      {
+        "ignore": ["images"]
+      }
+    ],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
+  },
+  "globals": {
+    "localStorage": true,
+    "sessionStorage": true,
+    "fetch": true,
+    "window": true,
+    "document": true
+  },
+  "settings": {
+    "react": {
+      "version": "999.999.999"
+    },
+    "import/resolver": {
+      "node": {
+        "paths": ["src"]
+      }
+    }
+  }
+}
