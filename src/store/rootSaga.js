@@ -1,7 +1,7 @@
 import {all} from 'redux-saga/effects';
 
-import hero from './modules/hero/sagas';
+import character from './modules/character/sagas';
 
 export default function* rootSaga() {
-  yield all([hero()]);
+  yield all([character()]);
 }
