@@ -7,7 +7,9 @@ export function generateSagas(types) {
   return {
     *create({payload}) {
       try {
-        const {data} = yield call(api.post, `${request}`, payload);
+        const {
+          data: {data},
+        } = yield call(api.post, `${request}`, payload);
 
         yield put({type: types.remove.SUCCESS, payload: data});
       } catch (error) {
@@ -17,7 +19,9 @@ export function generateSagas(types) {
 
     *list() {
       try {
-        const {data} = yield call(api.get, `${request}`);
+        const {
+          data: {data},
+        } = yield call(api.get, `${request}`);
 
         yield put({type: types.list.SUCCESS, payload: data});
       } catch (error) {
@@ -28,7 +32,9 @@ export function generateSagas(types) {
     *show({payload}) {
       const {id} = payload;
       try {
-        const {data} = yield call(api.get, `${request}/${id}`);
+        const {
+          data: {data},
+        } = yield call(api.get, `${request}/${id}`);
 
         yield put({type: types.show.SUCCESS, payload: data});
       } catch (error) {
@@ -38,7 +44,9 @@ export function generateSagas(types) {
 
     *update({payload}) {
       try {
-        const {data} = yield call(api.put, `${request}`, payload);
+        const {
+          data: {data},
+        } = yield call(api.put, `${request}`, payload);
 
         yield put({type: types.update.SUCCESS, payload: data});
       } catch (error) {
@@ -49,7 +57,9 @@ export function generateSagas(types) {
     *remove({payload}) {
       const {id} = payload;
       try {
-        const {data} = yield call(api.delete, `${request}/${id}`);
+        const {
+          data: {data},
+        } = yield call(api.delete, `${request}/${id}`);
 
         yield put({type: types.remove.SUCCESS, payload: data});
       } catch (error) {
