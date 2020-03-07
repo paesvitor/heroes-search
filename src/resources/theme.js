@@ -6,4 +6,6 @@ export default {
       light: '#FDECEC',
     },
   },
+
+  makeSpacing: s => `${s * 3}px`,
 };
