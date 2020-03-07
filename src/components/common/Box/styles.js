@@ -43,6 +43,7 @@ ${ifProp(
   ${ifProp(
     'flex',
     css`
+      display: flex;
       flex: ${prop('flex')};
     `,
   )}
