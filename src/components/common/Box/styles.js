@@ -6,7 +6,8 @@ const Container = styled.section`
     'container',
     css`
       max-width: 1200px;
-      margin: ${({theme}) => theme.makeSpacing(10)} auto;
+      padding: ${({theme}) => theme.makeSpacing(5)};
+      margin: 0 auto;
     `,
   )}
 
@@ -34,7 +35,7 @@ ${ifProp(
       ${ifProp(
         'col',
         css`
-          flex: ${({col}) => `1 0 ${(col / 12) * 100}%`};
+          flex: ${({col}) => `0 0 ${(col / 12) * 100}%`};
         `,
       )}
     `,
