@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import CharacterCard from 'components/character/CharacterCard';
 import {useDispatch, useSelector} from 'react-redux';
 import characterActions from 'store/modules/character/actions';
+import {Row, Col} from 'react-flexbox-grid';
 import Box from 'components/common/Box';
 
 function CharacterList() {
@@ -21,19 +22,19 @@ function CharacterList() {
   }
 
   return (
-    <Box grid>
+    <Row>
       {characterList.data.results.map(character => (
-        <Box gridItem col={3} textAlign="center">
-          <Box p={5} mb={5}>
+        <Col md={3} sm={6}>
+          <Box mb={5} p={5}>
             <CharacterCard
               key={character.id}
               thumbnail={character.thumbnail}
               name={character.name}
             />
           </Box>
-        </Box>
+        </Col>
       ))}
-    </Box>
+    </Row>
   );
 }
 

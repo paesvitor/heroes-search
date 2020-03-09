@@ -5,8 +5,8 @@ export const Container = styled.section``;
 
 export const Thumbnail = styled.img`
   border-bottom: 5px solid ${prop('theme.palette.primary.dark')};
-  margin-bottom: ${({theme}) => theme.makeSpacing(3)};
-  min-width: 100%;
+  margin-bottom: ${({theme}) => theme.makeSpacing(5)};
+  width: 100%;
 `;
 
 export const Name = styled.section`
