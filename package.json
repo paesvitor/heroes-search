@@ -23,11 +23,6 @@
     "styled-media-query": "^2.1.2",
     "styled-tools": "^1.7.1"
   },
-  "babel": {
-    "plugins": [
-      "@babel/plugin-proposal-optional-chaining"
-    ]
-  },
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
