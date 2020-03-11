@@ -50,6 +50,27 @@ ${ifProp(
   )}
 
   ${ifProp(
+    'alignItems',
+    css`
+      align-items: ${({alignItems}) => alignItems};
+    `,
+  )}
+
+  ${ifProp(
+    'justifyContent',
+    css`
+      justify-content: ${({justifyContent}) => justifyContent};
+    `,
+  )}
+
+  ${ifProp(
+    'flexDirection',
+    css`
+      flex-direction: ${({flexDirection}) => flexDirection};
+    `,
+  )}
+
+  ${ifProp(
     'p',
     css`
       padding: ${({theme, p}) => theme.makeSpacing(p)};
