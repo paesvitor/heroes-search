@@ -1,7 +1,9 @@
 import {prop} from 'styled-tools';
 import styled from 'styled-components';
 
-export const Container = styled.section``;
+export const Container = styled.section`
+  margin-bottom: ${({theme}) => theme.makeSpacing(5)};
+`;
 
 export const Thumbnail = styled.img`
   border-bottom: 5px solid ${prop('theme.palette.primary.dark')};

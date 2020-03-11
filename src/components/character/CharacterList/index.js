@@ -3,7 +3,7 @@ import CharacterCard from 'components/character/CharacterCard';
 import {useDispatch, useSelector} from 'react-redux';
 import characterActions from 'store/modules/character/actions';
 import {Row, Col} from 'react-flexbox-grid';
-import Box from 'components/common/Box';
+import CharacterListSummary from 'components/character/CharacterListSummary';
 
 function CharacterList() {
   const dispatch = useDispatch();
@@ -22,18 +22,20 @@ function CharacterList() {
   }
 
   return (
-    <Row>
-      {characterList.data.results.map(character => (
-        <Col md={3} sm={6} key={character.id}>
-          <Box mb={5} p={5}>
+    <>
+      <CharacterListSummary />
+
+      <Row>
+        {characterList.data.results.map(character => (
+          <Col md={3} sm={6} key={character.id}>
             <CharacterCard
               thumbnail={character.thumbnail}
               name={character.name}
             />
-          </Box>
-        </Col>
-      ))}
-    </Row>
+          </Col>
+        ))}
+      </Row>
+    </>
   );
 }
 
