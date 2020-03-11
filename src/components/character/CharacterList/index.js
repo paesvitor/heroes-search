@@ -29,6 +29,7 @@ function CharacterList() {
         {characterList.data.results.map(character => (
           <Col md={3} sm={6} key={character.id}>
             <CharacterCard
+              id={character.id}
               thumbnail={character.thumbnail}
               name={character.name}
             />
