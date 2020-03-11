@@ -24,10 +24,9 @@ function CharacterList() {
   return (
     <Row>
       {characterList.data.results.map(character => (
-        <Col md={3} sm={6}>
+        <Col md={3} sm={6} key={character.id}>
           <Box mb={5} p={5}>
             <CharacterCard
-              key={character.id}
               thumbnail={character.thumbnail}
               name={character.name}
             />
