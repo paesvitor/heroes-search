@@ -10,11 +10,16 @@ function SearchBox() {
   const dispatch = useDispatch();
   const [query, setQuery] = useState('');
 
+  // eslint-disable-next-line consistent-return
   useEffect(() => {
     if (isInitialMount.current) {
       isInitialMount.current = false;
     } else if (query.length > 0) {
-      dispatch(characterActions.list({params: {nameStartsWith: query}}));
+      const timeout = setTimeout(() => {
+        dispatch(characterActions.list({params: {nameStartsWith: query}}));
+      }, 500);
+
+      return () => clearTimeout(timeout);
     } else {
       dispatch(characterActions.list());
     }
