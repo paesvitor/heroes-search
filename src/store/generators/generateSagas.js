@@ -1,4 +1,5 @@
 import {call, put, takeLatest, all} from 'redux-saga/effects';
+import queryString from 'query-string';
 import api from 'api';
 
 export function generateSagas(types) {
@@ -17,11 +18,17 @@ export function generateSagas(types) {
       }
     },
 
-    *list() {
+    *list({payload}) {
       try {
+        let urlParams;
+
+        if (payload?.params) {
+          urlParams = queryString.stringify(payload.params);
+        }
+
         const {
           data: {data},
-        } = yield call(api.get, `${request}`);
+        } = yield call(api.get, `${request}?${urlParams || ''}`);
 
         yield put({type: types.list.SUCCESS, payload: data});
       } catch (error) {
