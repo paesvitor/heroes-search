@@ -1,4 +1,4 @@
-import {call, put, takeLatest, all} from 'redux-saga/effects';
+import {call, put, takeLatest, all, takeEvery} from 'redux-saga/effects';
 import queryString from 'query-string';
 import api from 'api';
 
@@ -37,15 +37,23 @@ export function generateSagas(types) {
     },
 
     *show({payload}) {
-      const {id} = payload;
+      const {id, action} = payload;
+      const name = 'show';
+
       try {
         const {
           data: {data},
-        } = yield call(api.get, `${request}/${id}`);
+        } = yield call(
+          api.get,
+          `${request}/${id}${action ? `/${action}` : ''}`,
+        );
 
-        yield put({type: types.show.SUCCESS, payload: data});
+        yield put({type: types[action || name].SUCCESS, payload: data});
       } catch (error) {
-        yield put({type: types.show.FAILURE, payload: String(error)});
+        yield put({
+          type: types[action || name].FAILURE,
+          payload: String(error),
+        });
       }
     },
 
@@ -80,7 +88,7 @@ export function* generateSagaDefaultRoot(types, sagas) {
   return all(
     yield takeLatest(types.create.REQUEST, sagas.create),
     yield takeLatest(types.list.REQUEST, sagas.list),
-    yield takeLatest(types.show.REQUEST, sagas.show),
+    yield takeEvery(types.show.REQUEST, sagas.show),
     yield takeLatest(types.update.REQUEST, sagas.update),
     yield takeLatest(types.remove.REQUEST, sagas.remove),
   );
