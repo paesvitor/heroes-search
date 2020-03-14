@@ -1,15 +1,15 @@
 import React from 'react';
 import Logo from 'components/common/Logo';
 import SearchBox from 'components/common/SearchBox';
-import {Container} from './styles';
+import Box from 'components/common/Box';
 
 function Header() {
   return (
-    <Container>
+    <Box Container flex alignItems="center">
       <Logo variant="small" />
 
       <SearchBox />
-    </Container>
+    </Box>
   );
 }
 

@@ -4,13 +4,16 @@ import {useDispatch, useSelector} from 'react-redux';
 import characterActions from 'store/modules/character/actions';
 import {Row, Col} from 'react-flexbox-grid';
 import CharacterListSummary from 'components/character/CharacterListSummary';
+import CharacterListPaginate from 'components/character/CharacterListPaginate';
 
 function CharacterList() {
   const dispatch = useDispatch();
   const characterList = useSelector(state => state.character.list);
 
   useEffect(() => {
-    dispatch(characterActions.list());
+    if (!characterList.data?.results) {
+      dispatch(characterActions.list());
+    }
   }, [dispatch]);
 
   if (characterList.loading) {
@@ -36,6 +39,8 @@ function CharacterList() {
           </Col>
         ))}
       </Row>
+
+      <CharacterListPaginate />
     </>
   );
 }

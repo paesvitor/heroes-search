@@ -15,7 +15,7 @@ const icons = {
 };
 
 function Icon({name}) {
-  return <img src={icons[name]} alt={name} />;
+  return <img src={icons[name]} alt={name} style={{height: '21px'}} />;
 }
 
 Icon.propTypes = {
