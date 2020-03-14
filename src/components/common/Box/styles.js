@@ -50,6 +50,13 @@ ${ifProp(
   )}
 
   ${ifProp(
+    'flexWrap',
+    css`
+      flex-wrap: ${({flexWrap}) => flexWrap};
+    `,
+  )}
+
+  ${ifProp(
     'alignItems',
     css`
       align-items: ${({alignItems}) => alignItems};
