@@ -15,10 +15,10 @@ Typography.propTypes = {
     'body',
     'label',
     'button',
-  ]).isRequired,
+  ]),
 };
 
-PropTypes.defaultProps = {
+Typography.defaultProps = {
   variant: 'body',
 };
 

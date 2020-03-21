@@ -10,14 +10,21 @@ import CharacterComicList from 'components/character/CharacterComicList';
 function CharacterScreen() {
   const dispatch = useDispatch();
   const loadingShow = useSelector(state => state.character.show.loading);
+  const loadingComics = useSelector(state => state.character.comics.loading);
   const params = useParams();
 
   useEffect(() => {
     dispatch(characterActions.show({id: params.id}));
-    dispatch(characterActions.show({id: params.id, action: 'comics'}));
+    dispatch(
+      characterActions.show({
+        id: params.id,
+        action: 'comics',
+        params: {orderBy: 'onsaleDate', limit: 10},
+      }),
+    );
   }, [dispatch]);
 
-  if (loadingShow) {
+  if (loadingShow && loadingComics) {
     return <section>Carregando...</section>;
   }
 

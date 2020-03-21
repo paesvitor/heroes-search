@@ -1,5 +1,5 @@
 import styled, {css} from 'styled-components';
-import {prop, ifProp} from 'styled-tools';
+import {ifProp} from 'styled-tools';
 
 const Container = styled.section`
   ${ifProp(
@@ -45,7 +45,14 @@ ${ifProp(
     'flex',
     css`
       display: flex;
-      flex: ${prop('flex')};
+      flex: ${({flex}) => flex};
+    `,
+  )}
+
+  ${ifProp(
+    'background',
+    css`
+      background: ${({background}) => background};
     `,
   )}
 
