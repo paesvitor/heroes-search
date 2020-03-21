@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Box from 'components/common/Box';
 import {useHistory} from 'react-router-dom';
+import CharacterFavoriteAction from 'components/character/CharacterFavoriteAction';
 import {Container, Thumbnail, Name} from './styles';
 
 function CharacterCard({thumbnail, name, id}) {
@@ -12,14 +13,15 @@ function CharacterCard({thumbnail, name, id}) {
   }
 
   return (
-    <Container onClick={navigateToCharacterScreen}>
+    <Container>
       <Thumbnail
+        onClick={navigateToCharacterScreen}
         src={`${thumbnail.path}/standard_fantastic.${thumbnail.extension}`}
       />
       <Box flex>
         <Name>{name}</Name>
 
-        <section>F</section>
+        <CharacterFavoriteAction id={id} />
       </Box>
     </Container>
   );

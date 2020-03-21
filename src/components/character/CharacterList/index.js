@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import CharacterCard from 'components/character/CharacterCard';
 import {useDispatch, useSelector} from 'react-redux';
 import characterActions from 'store/modules/character/actions';
@@ -8,20 +8,23 @@ import CharacterListPaginate from 'components/character/CharacterListPaginate';
 
 function CharacterList() {
   const dispatch = useDispatch();
-  const characterList = useSelector(state => state.character.list);
+  const [activeFilter, setActiveFilter] = useState('alphabetic');
+  const characterList = useSelector(
+    state => state.character.list.data?.results,
+  );
+  const characterFavoriteList = useSelector(state => state.character.favorites);
+  const loading = useSelector(state => state.character.list.loading);
+  const activeList =
+    activeFilter === 'alphabetic' ? characterList : characterFavoriteList;
 
   useEffect(() => {
-    if (!characterList.data?.results) {
+    if (!characterList) {
       dispatch(characterActions.list());
     }
   }, [dispatch]);
 
-  if (characterList.loading) {
+  if (loading) {
     return <section>Carregando</section>;
-  }
-
-  if (!characterList.data.results) {
-    return null;
   }
 
   return (
@@ -29,7 +32,7 @@ function CharacterList() {
       <CharacterListSummary />
 
       <Row>
-        {characterList.data.results.map(character => (
+        {activeList.map(character => (
           <Col md={3} sm={6} key={character.id}>
             <CharacterCard
               id={character.id}

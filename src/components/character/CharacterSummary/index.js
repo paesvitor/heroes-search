@@ -36,7 +36,7 @@ function CharacterSummary() {
           {description || 'Nenhuma descrição'}
         </Box>
 
-        <Box StatisticsContainer flex>
+        {/* <Box StatisticsContainer flex>
           <Box Statistic mr={5}>
             <Box LabelContainer mb={3}>
               <Typography variant="label">Quadrinhos</Typography>
@@ -60,7 +60,7 @@ function CharacterSummary() {
               <Typography>{character.series.available}</Typography>
             </Box>
           </Box>
-        </Box>
+        </Box> */}
       </Box>
 
       <Box ImageContainer flex={1} justifyContent="center">

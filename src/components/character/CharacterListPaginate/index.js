@@ -2,6 +2,7 @@ import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import characterActions from 'store/modules/character/actions';
 import Box from 'components/common/Box';
+import Button from 'components/common/Button';
 
 function CharacterListPaginate() {
   const dispatch = useDispatch();
@@ -25,16 +26,18 @@ function CharacterListPaginate() {
 
   return (
     <Box flex justifyContent="center">
-      <button
+      <Button
         disabled={characterList.data.offset === 0}
         onClick={handleLoadPreviousPage}
         type="button">
         Página Anterior
-      </button>
+      </Button>
 
-      <button onClick={handleLoadNextPage} type="button">
+      <Box mr={3} />
+
+      <Button onClick={handleLoadNextPage} type="button">
         Próxima página
-      </button>
+      </Button>
     </Box>
   );
 }
