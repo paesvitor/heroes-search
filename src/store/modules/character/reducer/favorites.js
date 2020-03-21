@@ -1,29 +1,27 @@
 import TYPES from '../types';
 
-console.log(TYPES);
-
 const initialState = {
-  data: {},
+  data: [],
   loading: true,
   error: false,
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case TYPES.show.REQUEST:
+    case TYPES.favorite.REQUEST:
       return {
         ...state,
         loading: true,
       };
 
-    case TYPES.show.SUCCESS:
+    case TYPES.favorite.SUCCESS:
       return {
         ...state,
         loading: false,
-        data: action.payload,
+        data: [...state.data, action.character],
       };
 
-    case TYPES.show.FAILURE:
+    case TYPES.favorite.FAILURE:
       return {
         ...state,
         loading: false,

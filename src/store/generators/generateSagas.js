@@ -40,12 +40,18 @@ export function generateSagas(types) {
       const {id, action} = payload;
       const name = 'show';
 
+      let urlParams;
+
+      if (payload?.params) {
+        urlParams = queryString.stringify(payload.params);
+      }
+
       try {
         const {
           data: {data},
         } = yield call(
           api.get,
-          `${request}/${id}${action ? `/${action}` : ''}`,
+          `${request}/${id}${action ? `/${action}` : ''}?${urlParams || ''}`,
         );
 
         yield put({type: types[action || name].SUCCESS, payload: data});

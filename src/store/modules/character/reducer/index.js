@@ -5,9 +5,11 @@ import show from './show';
 
 // Actions
 import comics from './comics';
+import favorites from './favorites';
 
 export default combineReducers({
   list,
   show,
   comics,
+  favorites,
 });

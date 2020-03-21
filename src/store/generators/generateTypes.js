@@ -9,7 +9,7 @@ function createTypeShape(entity, type) {
 const types = ['list', 'show', 'create', 'remove', 'update'];
 
 export function generateTypes(config) {
-  const {name, plural, actions} = config;
+  const {name, plural, actions = []} = config;
 
   const requests = {};
   // eslint-disable-next-line array-callback-return
