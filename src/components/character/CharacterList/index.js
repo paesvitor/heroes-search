@@ -7,6 +7,7 @@ import CharacterListPaginate from 'components/character/CharacterListPaginate';
 import CharacterListFilter from 'components/character/CharacterListFilter';
 import Box from 'components/common/Box';
 import Typography from 'components/common/Typography';
+import EmptyState from './EmptyState';
 
 function CharacterList() {
   const dispatch = useDispatch();
@@ -45,6 +46,21 @@ function CharacterList() {
     return null;
   }
 
+  function renderList() {
+    if (activeList.length === 0) {
+      return <EmptyState />;
+    }
+    return activeList.map(character => (
+      <Col md={3} sm={6} key={character.id}>
+        <CharacterCard
+          id={character.id}
+          thumbnail={character.thumbnail}
+          name={character.name}
+        />
+      </Col>
+    ));
+  }
+
   return (
     <>
       <Box display="flex" alignItems="center" mb={5}>
@@ -57,17 +73,7 @@ function CharacterList() {
         </Box>
       </Box>
 
-      <Row>
-        {activeList.map(character => (
-          <Col md={3} sm={6} key={character.id}>
-            <CharacterCard
-              id={character.id}
-              thumbnail={character.thumbnail}
-              name={character.name}
-            />
-          </Col>
-        ))}
-      </Row>
+      <Row>{renderList()}</Row>
 
       {renderPaginate()}
     </>
