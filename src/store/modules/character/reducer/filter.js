@@ -2,6 +2,7 @@ import TYPES from '../types';
 
 const initialState = {
   activeFilter: 'alphabetic',
+  query: '',
 };
 
 export default (state = initialState, action) => {
@@ -11,10 +12,14 @@ export default (state = initialState, action) => {
         activeFilter: action.payload,
       };
 
-    case TYPES.list.REQUEST:
+    case TYPES.list.REQUEST: {
+      const query = action.payload?.params.nameStartsWith;
+
       return {
         activeFilter: 'alphabetic',
+        query,
       };
+    }
 
     default:
       return state;
