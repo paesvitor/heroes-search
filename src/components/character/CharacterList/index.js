@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import CharacterCard from 'components/character/CharacterCard';
 import {useDispatch, useSelector} from 'react-redux';
 import characterActions from 'store/modules/character/actions';
@@ -10,7 +10,9 @@ import Typography from 'components/common/Typography';
 
 function CharacterList() {
   const dispatch = useDispatch();
-  const [activeFilter, setActiveFilter] = useState('alphabetic');
+  const activeFilter = useSelector(
+    state => state.character.filter.activeFilter,
+  );
   const searchTotal = useSelector(state => state.character.list.data.total);
   const characterListData = useSelector(state => state.character.list.data);
   const characterListResults = useSelector(
@@ -51,10 +53,7 @@ function CharacterList() {
         </Box>
 
         <Box>
-          <CharacterListFilter
-            setActiveFilter={setActiveFilter}
-            activeFilter={activeFilter}
-          />
+          <CharacterListFilter />
         </Box>
       </Box>
 

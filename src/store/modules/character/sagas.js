@@ -19,7 +19,6 @@ function* favorite({payload}) {
       character,
     });
   } catch (error) {
-    yield console.log(error);
     yield put({
       type: types.favorite.FAILURE,
     });
