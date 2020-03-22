@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Icon from 'components/common/Icon';
 import toggleAlphabeticImage from 'resources/images/common/toggle_off.svg';
 import toggleFavoriteImage from 'resources/images/common/toggle_on.svg';
@@ -10,9 +11,7 @@ import {
   FilterOptionIcon,
 } from './styles';
 
-function CharacterListFilter() {
-  const [activeFilter, setActiveFilter] = useState('alphabetic');
-
+function CharacterListFilter({setActiveFilter, activeFilter}) {
   return (
     <Container>
       <FilterOption onClick={() => setActiveFilter('alphabetic')}>
@@ -44,5 +43,10 @@ function CharacterListFilter() {
     </Container>
   );
 }
+
+CharacterListFilter.propTypes = {
+  setActiveFilter: PropTypes.func.isRequired,
+  activeFilter: PropTypes.string.isRequired,
+};
 
 export default CharacterListFilter;

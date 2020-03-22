@@ -48,7 +48,6 @@ export default styled.section`
         css`
           font-size: 15px;
           letter-spacing: 0.1px;
-          line-height: 24;
           font-weight: 300;
         `}
     `}

@@ -48,6 +48,13 @@ ${ifProp(
       flex: ${({flex}) => flex};
     `,
   )}
+  
+  ${ifProp(
+    'display',
+    css`
+      display: ${({display}) => display};
+    `,
+  )}
 
   ${ifProp(
     'background',

@@ -3,6 +3,7 @@ import Box from 'components/common/Box';
 import Typography from 'components/common/Typography';
 import Icon from 'components/common/Icon';
 import {useSelector} from 'react-redux';
+import CharacterFavoriteAction from 'components/character/CharacterFavoriteAction';
 
 function CharacterSummary() {
   const characterResult = useSelector(
@@ -14,7 +15,7 @@ function CharacterSummary() {
     return null;
   }
 
-  const {description, name} = character;
+  const {description, name, id} = character;
 
   return (
     <Box Container flex flexWrap="wrap">
@@ -28,7 +29,7 @@ function CharacterSummary() {
           </Box>
 
           <Box IconContainer>
-            <Icon name="favorite" />
+            <CharacterFavoriteAction id={id} />
           </Box>
         </Box>
 
@@ -36,7 +37,7 @@ function CharacterSummary() {
           {description || 'Nenhuma descrição'}
         </Box>
 
-        {/* <Box StatisticsContainer flex>
+        <Box StatisticsContainer flex>
           <Box Statistic mr={5}>
             <Box LabelContainer mb={3}>
               <Typography variant="label">Quadrinhos</Typography>
@@ -60,7 +61,7 @@ function CharacterSummary() {
               <Typography>{character.series.available}</Typography>
             </Box>
           </Box>
-        </Box> */}
+        </Box>
       </Box>
 
       <Box ImageContainer flex={1} justifyContent="center">
