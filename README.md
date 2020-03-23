@@ -4,7 +4,9 @@ Criado com o [create-react-app](https://github.com/facebook/create-react-app)
 
 ## URL para acessar
 
-https://paesvitor.github.io/zipcode-finder
+https://paesvitor.github.io/heroes-search
+
+Deployado com o gh-pages
 
 ## O Que eu usei
 
@@ -13,6 +15,16 @@ https://paesvitor.github.io/zipcode-finder
 - React Testing Library para testes
 - Styled Components, tools e media queries para estilos
 - Redux com Redux Saga e Redux Logger em desenvolvimento
+
+## Subindo em dev
+
+```
+yarn install
+```
+
+```
+yarn start
+```
 
 ## Store
 
