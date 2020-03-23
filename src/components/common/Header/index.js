@@ -5,10 +5,17 @@ import Box from 'components/common/Box';
 
 function Header() {
   return (
-    <Box Container flex alignItems="center">
+    <Box
+      Container
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      flexWrap="wrap">
       <Logo variant="small" />
 
-      <SearchBox />
+      <Box flex={1}>
+        <SearchBox />
+      </Box>
     </Box>
   );
 }

@@ -1,7 +1,5 @@
 import TYPES from '../types';
 
-console.log(TYPES);
-
 const initialState = {
   data: {},
   loading: true,

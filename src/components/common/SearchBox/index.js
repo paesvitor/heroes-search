@@ -42,6 +42,7 @@ function SearchBox() {
       </Box>
 
       <Input
+        data-testid="search-box-input"
         placeholder="Procure por Heróis"
         value={query}
         onChange={e => setQuery(e.target.value)}

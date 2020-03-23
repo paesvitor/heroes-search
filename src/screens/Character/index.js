@@ -10,7 +10,6 @@ import CharacterComicList from 'components/character/CharacterComicList';
 function CharacterScreen() {
   const dispatch = useDispatch();
   const loadingShow = useSelector(state => state.character.show.loading);
-  const loadingComics = useSelector(state => state.character.comics.loading);
   const params = useParams();
 
   useEffect(() => {
@@ -24,7 +23,7 @@ function CharacterScreen() {
     );
   }, [dispatch]);
 
-  if (loadingShow && loadingComics) {
+  if (loadingShow) {
     return <section>Carregando...</section>;
   }
 
@@ -33,7 +32,9 @@ function CharacterScreen() {
       <Box HeaderContainer mb={10}>
         <Header />
       </Box>
-      <CharacterSummary />
+      <Box mb={10}>
+        <CharacterSummary />
+      </Box>
       <CharacterComicList />
     </Box>
   );

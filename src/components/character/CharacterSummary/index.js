@@ -19,7 +19,7 @@ function CharacterSummary() {
 
   return (
     <Box Container flex flexWrap="wrap">
-      <Box ContentContainer flex={1} flexDirection="column" mr={5}>
+      <Box ContentContainer flex={1} flexDirection="column" mr={5} mb={10}>
         {/* Header */}
         <Box HeaderContainer flex mb={5}>
           <Box TitleContainer flex={1}>
@@ -68,7 +68,7 @@ function CharacterSummary() {
         <img
           src={`${character.thumbnail.path}/detail.${character.thumbnail.extension}`}
           alt={character.name}
-          style={{minWidth: '100%'}}
+          style={{maxWidth: '100%'}}
         />
       </Box>
     </Box>
