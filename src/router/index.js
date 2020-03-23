@@ -7,7 +7,7 @@ import CharacterScreen from 'screens/Character';
 // Components
 function Router() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={window.location.pathname || ''}>
       <Switch>
         <Route exact path="/" component={HomeScreen} />
         <Route exact path="/personagem/:id" component={CharacterScreen} />
