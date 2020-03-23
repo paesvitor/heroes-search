@@ -33,7 +33,7 @@ CharacterCard.propTypes = {
     extension: PropTypes.string.isRequired,
   }).isRequired,
   name: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 export default CharacterCard;

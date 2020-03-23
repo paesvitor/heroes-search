@@ -27,7 +27,7 @@ function CharacterFavoriteAction({id}) {
 }
 
 CharacterFavoriteAction.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 export default CharacterFavoriteAction;
